@@ -1,20 +1,18 @@
 REQUIREMENTS
 ---------------------------
-- libspotify:
-	http://developer.spotify.com/en/libspotify/overview/
-		wget https://developer.spotify.com/download/libspotify/libspotify-0.0.4-linux6-i686.tar.gz
-		tar xzf libspotify-*.tar.gz
-		cd libspotify-*
-		sudo make install prefix=/usr/local
-		( export LD_LIBARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib/ )
+- libspotify: http://developer.spotify.com/en/libspotify/overview/
+	wget https://developer.spotify.com/download/libspotify/libspotify-0.0.4-linux6-i686.tar.gz
+	tar xzf libspotify-*.tar.gz
+	cd libspotify-*
+	sudo make install prefix=/usr/local
+	(export LD_LIBARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib/)
 
-- pyspotify:
-	http://github.com/winjer/pyspotify
-		git clone http://github.com/winjer/pyspotify.git
-		sudo setup.py install --prefix=/usr/local
+- pyspotify: http://github.com/winjer/pyspotify
+	git clone http://github.com/winjer/pyspotify.git
+	sudo setup.py install --prefix=/usr/local
 
 - pygame (for ads-player):
-		sudo apt-get install python-pygame
+	sudo apt-get install python-pygame
 		
 EXECUTE
 ---------------------------

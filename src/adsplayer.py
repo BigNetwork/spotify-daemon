@@ -8,7 +8,7 @@ BITSIZE = -16
 CHANNELS = 2
 BUFFER = 1024
 FRAMERATE = 30
-ADS_DIR = '../ads/'
+ADS_DIR = 'ads/'
 FORMATS = ["mp3"]
 
 class AdsPlayer():

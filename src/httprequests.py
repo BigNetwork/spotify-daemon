@@ -14,7 +14,7 @@ from spotify import Link
 
 import httplib
 from xml.dom import minidom
-from config_manager import ConfigManager
+from configreader import *
 
 class HTTPRequests(threading.Thread):
 	
@@ -22,8 +22,8 @@ class HTTPRequests(threading.Thread):
 			threading.Thread.__init__(self)
 			self.session = session
 			
-			http_host = ConfigManager.get("app", "callback_host")
-			http_site = ConfigManager.get("app", "callback_site")
+			http_host = ConfigReader().get("app", "callback_host")
+			http_site = ConfigReader().get("app", "callback_site")
 			self.http = HTTPManager(http_host, http_site)
 
 

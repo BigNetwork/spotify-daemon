@@ -6,8 +6,7 @@ import time
 import threading
 
 from userinterface import *
-from http_requests import *
-
+from httprequests import *
 from spotify.manager import SpotifySessionManager
 try:
     from spotify.alsahelper import AlsaController
