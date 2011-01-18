@@ -68,7 +68,7 @@ class HTTPManager():
 		self.connection = httplib.HTTPConnection(self.http_host, self.http_port)
 		self.connection.request("GET", "/" + self.http_site)
 		response = self.connection.getresponse()
-		if self.connection.status == 302:
+		if response.status == 302:
 		    self.http_site = self.connection.getresponse().getheader("Location").replace('http://','').replace(self.http_host + "/", "")
 		    response = self.connect()
 		return response
