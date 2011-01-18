@@ -6,10 +6,10 @@ import time
 import threading
 
 from spotify.manager import SpotifySessionManager
-try:
-    from spotify.alsahelper import AlsaController
-except ImportError:
-    from spotify.osshelper import OssController as AlsaController
+#try:
+#    from spotify.alsahelper import AlsaController
+#except ImportError:
+#    from spotify.osshelper import OssController as AlsaController
 from spotify import Link
 
 import httplib
@@ -23,8 +23,9 @@ class HTTPRequests(threading.Thread):
 			self.session = session
 			
 			http_host = ConfigReader().get("app", "callback_host")
+			http_port = ConfigReader().get("app", "callback_port")
 			http_site = ConfigReader().get("app", "callback_site")
-			self.http = HTTPManager(http_host, http_site)
+			self.http = HTTPManager(http_host, http_port, http_site)
 
 
 	def run(self):
@@ -58,14 +59,19 @@ class HTTPRequests(threading.Thread):
 
 class HTTPManager():
 	
-	def __init__(self, host, site):
+	def __init__(self, host, port, site):
 		self.http_host = host
+		self.http_port = port
 		self.http_site = site
 
 	def connect(self):
-		self.connection = httplib.HTTPConnection(self.http_host)
+		self.connection = httplib.HTTPConnection(self.http_host, self.http_port)
 		self.connection.request("GET", "/" + self.http_site)
-		response = self.connection.getresponse()
+		if self.connection.status == 302:
+		    self.http_site = self.connection.getresponse().getheader("Location").replace('http://','').replace(self.http_host + "/", "")
+		    response = self.connect()
+		else:
+		    response = self.connection.getresponse()
 		return response
 		
 	def contents(self, response):
