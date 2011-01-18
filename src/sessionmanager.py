@@ -48,7 +48,7 @@ class SessionManager(SpotifySessionManager):
 			pass
 
 		self.session.load(track)
-		print "Loading %s" % track.name()
+		print "Loading track '%s'" % track.name()
 
     def load(self, playlist, track):
         if self.playing:

@@ -44,7 +44,7 @@ class HTTPRequests(threading.Thread):
 		data = self.http.contents(response)
 		if data == None:
 			return None
-			
+		
 		track = self.http.parse_href_xml(data)
 		self.http.close()
 		return track
@@ -69,7 +69,7 @@ class HTTPManager():
 		self.connection.request("GET", "/" + self.http_site)
 		response = self.connection.getresponse()
 		if response.status == 302:
-		    self.http_site = response.getheader("Location").replace('http://','').replace(self.http_host + "/", "")
+		    self.http_site = response.getheader("Location").replace('http://','').replace(self.http_host + ":" + self.http_port + "/", "").replace(self.http_host, '')
 		    response = self.connect()
 		return response
 		
