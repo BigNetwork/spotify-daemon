@@ -13,11 +13,15 @@ Developers:
 
 # Requirements
 
-## libspotify: 
+* libspotify
+* pyspotify
+* pygame (for playing ads between songs)
+
+### libspotify:
 
 http://developer.spotify.com/en/libspotify/overview/
 
-How to install: 
+#### How to install: 
 
 (old, new instructions for libspotify-0.0.6 might be needed)
 
@@ -27,11 +31,11 @@ How to install:
     sudo make install prefix=/usr/local
     (export LD_LIBARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib/)
 
-## pyspotify: 
+### pyspotify: 
 
 Specifically jodals fork (because it's the most updated one): http://github.com/jodal/pyspotify
 
-How to install:
+#### How to install:
 
     git clone http://github.com/jodal/pyspotify.git
     sudo setup.py install --prefix=/usr/local
@@ -40,7 +44,7 @@ Or see these instructions:
 
 http://www.mopidy.com/docs/master/installation/libspotify/
 
-## pygame (for ads-player):
+### pygame (for ads-player):
 
     sudo apt-get install python-pygame
 		
