@@ -6,10 +6,10 @@ import time
 import threading
 
 from spotify.manager import SpotifySessionManager
-#try:
-#    from spotify.alsahelper import AlsaController
-#except ImportError:
-#    from spotify.osshelper import OssController as AlsaController
+try:
+    from spotify.alsahelper import AlsaController
+except ImportError:
+    from spotify.osshelper import OssController as AlsaController
 from spotify import Link
 
 import httplib

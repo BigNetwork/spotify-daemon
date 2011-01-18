@@ -19,8 +19,8 @@ def remove_pyc(dir = '.'):
 ############################
 
 import optparse
-from src.sessionmanager import SessionManager
-#from src.sessionmanager import *
+#from src.sessionmanager import SessionManager
+from src.sessionmanager import *
 
 op = optparse.OptionParser(version="%prog 0.1")
 op.add_option("-u", "--username", help="spotify username")

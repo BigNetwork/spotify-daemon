@@ -8,10 +8,10 @@ import threading
 from userinterface import *
 from httprequests import *
 from spotify.manager import SpotifySessionManager
-#try:
-#    from spotify.alsahelper import AlsaController
-#except ImportError:
-#    from spotify.osshelper import OssController as AlsaController
+try:
+    from spotify.alsahelper import AlsaController
+except ImportError:
+    from spotify.osshelper import OssController as AlsaController
 from spotify import Link
 
 class SessionManager(SpotifySessionManager):
@@ -23,7 +23,7 @@ class SessionManager(SpotifySessionManager):
 
     def __init__(self, *a, **kw):
         SpotifySessionManager.__init__(self, *a, **kw)
-        #self.audio = AlsaController()
+        self.audio = AlsaController()
         self.ui = HTTPRequests(self)
         self.ctr = None
         self.playing = False
